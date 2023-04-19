@@ -6,7 +6,7 @@
 /*   By: aagouzou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:53:05 by aagouzou          #+#    #+#             */
-/*   Updated: 2023/04/19 00:38:10 by aagouzou         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:44:57 by aagouzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void	ft_usleep(long long time, int time_to_usleep)
 {
-	while(ft_time() - time < time_to_usleep)
+	while (ft_time() - time < time_to_usleep)
 		usleep(500);
 }
 
 void	ft_print(t_philo *philo, long long time, char *s)
 {
 	pthread_mutex_lock(&philo->data->print);
-	printf("%lld %d %s\n",(time - philo->data->start) , philo->id, s);
+	printf("%lld %d %s\n", (time - philo->data->start), philo->id, s);
 	pthread_mutex_unlock(&philo->data->print);
 }
 
-long long ft_time(void)
+long long	ft_time(void)
 {
-	struct timeval time;
+	struct timeval	time;
 
-	gettimeofday(&time,NULL);
-	return(time.tv_sec * 1000 + time.tv_usec / 1000);
+	gettimeofday(&time, NULL);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 
 int	ft_atoi(char *str)

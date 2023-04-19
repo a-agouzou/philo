@@ -6,7 +6,7 @@
 /*   By: aagouzou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:53:34 by aagouzou          #+#    #+#             */
-/*   Updated: 2023/04/19 00:36:08 by aagouzou         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:44:13 by aagouzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_eating(t_philo *philo)
 	pthread_mutex_lock(&philo->next->fork);
 	ft_print(philo, ft_time(), "has taken a fork");
 	ft_print(philo, ft_time(), "is eating");
-	ft_usleep(ft_time(),philo->data->time_to_eat);
+	ft_usleep(ft_time(), philo->data->time_to_eat);
 	pthread_mutex_lock(&philo->data->eats);
 	philo->last_meal = ft_time();
 	philo->meal += 1;
@@ -33,7 +33,7 @@ void	ft_eating(t_philo *philo)
 void	ft_sleeping(t_philo *philo)
 {
 	ft_print(philo, ft_time(), "is sleeping");
-	ft_usleep(ft_time(),philo->data->time_to_sleep);
+	ft_usleep(ft_time(), philo->data->time_to_sleep);
 }
 
 void	ft_thinking(t_philo *philo)
@@ -43,8 +43,8 @@ void	ft_thinking(t_philo *philo)
 
 void	*routine(void *param)
 {
-	int is_finish;
-	t_philo *philo;
+	int		is_finish;
+	t_philo	*philo;
 
 	philo = (t_philo *)param;
 	if (!(philo->id % 2))

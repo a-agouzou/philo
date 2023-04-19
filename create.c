@@ -6,7 +6,7 @@
 /*   By: aagouzou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 17:04:29 by aagouzou          #+#    #+#             */
-/*   Updated: 2023/04/19 00:21:05 by aagouzou         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:41:55 by aagouzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ void	create_threads(t_philo *philo, t_data *data)
 
 t_philo	*create_philosphers(t_data *data, t_philo *philo)
 {
-	t_philo *tmp;
-	int i;
+	t_philo	*tmp;
+	int		i;
 
 	philo = NULL;
 	i = -1;
