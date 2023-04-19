@@ -6,11 +6,17 @@
 /*   By: aagouzou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:53:05 by aagouzou          #+#    #+#             */
-/*   Updated: 2023/04/18 22:14:40 by aagouzou         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:38:10 by aagouzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./philo.h"
+
+void	ft_usleep(long long time, int time_to_usleep)
+{
+	while(ft_time() - time < time_to_usleep)
+		usleep(500);
+}
 
 void	ft_print(t_philo *philo, long long time, char *s)
 {

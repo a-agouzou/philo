@@ -6,7 +6,7 @@
 #    By: aagouzou <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/18 16:06:29 by aagouzou          #+#    #+#              #
-#    Updated: 2023/04/18 23:25:56 by aagouzou         ###   ########.fr        #
+#    Updated: 2023/04/19 00:30:15 by aagouzou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,3 +30,6 @@ clean:
 	rm -fr *.o
 fclean: clean
 	rm -fr $(NAME)
+
+re: fclean all
+	

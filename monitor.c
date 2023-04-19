@@ -6,7 +6,7 @@
 /*   By: aagouzou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 15:53:30 by aagouzou          #+#    #+#             */
-/*   Updated: 2023/04/18 23:25:41 by aagouzou         ###   ########.fr       */
+/*   Updated: 2023/04/19 00:24:56 by aagouzou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,25 @@ void	ft_monitor(t_philo	*philo)
 		while(tmp)
 		{
 			pthread_mutex_lock(&tmp->data->eats);
-			// pthread_mutex_lock(&tmp->data->print);
+			
 			if(ft_time() - tmp->last_meal > tmp->data->time_to_die)
 			{
+				pthread_mutex_lock(&tmp->data->monitor);
 				tmp->data->finish = 1;
+				pthread_mutex_unlock(&tmp->data->monitor);
 				ft_print(tmp,ft_time(),"died");
 				return ;
 			}
+			pthread_mutex_lock(&tmp->data->print);
+			if(tmp->data->meals == tmp->data->nbr_of_philo)
+			{
+				pthread_mutex_lock(&tmp->data->monitor);
+				tmp->data->finish = 1;
+				pthread_mutex_unlock(&tmp->data->monitor);
+				return ;
+			}
+			pthread_mutex_unlock(&tmp->data->print);
 			pthread_mutex_unlock(&tmp->data->eats);
-			// pthread_mutex_unlock(&tmp->data->print);
 			tmp = tmp->next;
 			if(tmp == philo)
 				break;
